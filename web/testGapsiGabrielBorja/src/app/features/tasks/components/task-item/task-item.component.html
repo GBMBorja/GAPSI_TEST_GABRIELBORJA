@@ -1,0 +1,33 @@
+<div class="task-item" [class.completed]="task.completada">
+  <div class="task-content">
+    <input 
+      type="checkbox" 
+      [checked]="task.completada"
+      (change)="onToggleComplete()"
+      class="task-checkbox"
+      aria-label="Marcar tarea como completada"
+    >
+    <div class="task-details">
+      <h3 class="task-title" [class.strikethrough]="task.completada">{{ task.titulo }}</h3>
+      <p class="task-description" *ngIf="task.descripcion" [class.strikethrough]="task.completada">
+        {{ task.descripcion }}
+      </p>
+      <div class="task-meta">
+        <small class="task-date">📅 {{ task.fechaCreacion }}</small>
+        <small class="task-time">🕐 {{ task.horaCreacion }}</small>
+        <small class="task-status" [class.completed]="task.completada">
+          {{ task.completada ? '✅ Completada' : '⏳ Pendiente' }}
+        </small>
+      </div>
+    </div>
+  </div>
+  
+  <button 
+    class="btn-delete" 
+    (click)="onDelete()"
+    aria-label="Eliminar tarea"
+    title="Eliminar tarea"
+  >
+    <span class="icon">🗑️</span>
+  </button>
+</div>

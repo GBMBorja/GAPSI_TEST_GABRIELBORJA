@@ -1,0 +1,132 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #bdbdbd;
+  }
+
+  &.completed {
+    background-color: #f5f5f5;
+    opacity: 0.85;
+    border-color: #4caf50;
+
+    .task-title,
+    .task-description {
+      color: #999;
+    }
+  }
+}
+
+.task-content {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.task-checkbox {
+  margin-top: 0.25rem;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  accent-color: #4caf50;
+  flex-shrink: 0;
+}
+
+.task-details {
+  flex: 1;
+}
+
+.task-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #212121;
+  transition: all 0.3s ease;
+
+  &.strikethrough {
+    text-decoration: line-through;
+    color: #999;
+  }
+}
+
+.task-description {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+
+  &.strikethrough {
+    text-decoration: line-through;
+    color: #999;
+  }
+}
+
+.task-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.task-date,
+.task-time,
+.task-status {
+  color: #999;
+  font-size: 0.85rem;
+  display: inline-block;
+
+  &.completed {
+    color: #4caf50;
+    font-weight: 600;
+  }
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  .icon {
+    display: inline-block;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .task-content {
+    width: 100%;
+  }
+
+  .btn-delete {
+    align-self: flex-end;
+  }
+}

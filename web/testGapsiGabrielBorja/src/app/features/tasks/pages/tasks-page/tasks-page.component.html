@@ -1,0 +1,29 @@
+<div class="tasks-page">
+  <div class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">📝 Gestor de Tareas GAPSI</h1>
+      <p class="page-subtitle">Organiza y gestiona tus tareas de forma fácil y eficiente</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <!-- Formulario para crear tareas -->
+    <section class="form-section">
+      <app-task-form (taskCreated)="onCreateTask($event)"></app-task-form>
+    </section>
+
+    <!-- Lista de tareas -->
+    <section class="list-section">
+      <app-task-list
+        [tasks]="tasks"
+        [isLoading]="isLoading"
+        (taskToggled)="onToggleTask($event)"
+        (taskDeleted)="onDeleteTask($event)"
+      ></app-task-list>
+    </section>
+  </div>
+
+  <div class="page-footer">
+    <p>Conectado con backend en <code>http://localhost:8080/api/tasks</code></p>
+  </div>
+</div>

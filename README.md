@@ -5,5 +5,9 @@ En este repositorio se encuentra el proyecto backend Java Springboot y frontend 
 
 En cada sub carpeta estan sus respectivos README para ejecucion en local y pruebas.
 
+La carpeta web contiene el ANGULAR FRONTEND
+
+La carpeta GabrielBorjaJava contiene el BACKEND
+
 Gracias
 

@@ -1,0 +1,43 @@
+<div class="task-list-container">
+  <!-- Estadísticas -->
+  <div class="task-statistics" *ngIf="tasks && tasks.length > 0">
+    <div class="stat-item">
+      <span class="stat-icon">📊</span>
+      <span class="stat-label">Total</span>
+      <span class="stat-value">{{ tasks.length }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">✅</span>
+      <span class="stat-label">Completadas</span>
+      <span class="stat-value completed">{{ getCompletedCount() }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">⏳</span>
+      <span class="stat-label">Pendientes</span>
+      <span class="stat-value pending">{{ getPendingCount() }}</span>
+    </div>
+  </div>
+
+  <!-- Estado de carga -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Cargando tareas...</p>
+  </div>
+
+  <!-- Lista vacía -->
+  <div class="empty-state" *ngIf="!isLoading && (!tasks || tasks.length === 0)">
+    <p class="empty-icon">📋</p>
+    <h3>No hay tareas</h3>
+    <p>Crea tu primera tarea para comenzar</p>
+  </div>
+
+  <!-- Lista de tareas -->
+  <div class="tasks-list" *ngIf="!isLoading && tasks && tasks.length > 0">
+    <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (taskToggled)="onTaskToggled($event)"
+      (taskDeleted)="onTaskDeleted($event)"
+    ></app-task-item>
+  </div>
+</div>
